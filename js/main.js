@@ -1,13 +1,8 @@
-const consultaCep = fetch('https://viacep.com.br/ws/45089150/json/')
-    .then(response => response.json())
-    .then(json => {
-        if(json.erro) {
-            throw Error('Esse cep não existe!')
-        } else {
-            console.log(json)
-        }
-    })
-    .catch(error => console.log(error))
-    .finally(menssagem => console.log('Processamento concluído!'));
+async function buscarEnderco(){
+    const consultaCep = await fetch('https://viacep.com.br/ws/44089150/json/');
+    const consultaCepJSON = await consultaCep.json();
+    console.log(consultaCepJSON);
+}
 
-console.log(consultaCep)
+buscarEnderco()
+    
